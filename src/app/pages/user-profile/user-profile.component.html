@@ -24,7 +24,7 @@
           <br>
           <div class="row">
             <div class="col-auto" *ngIf="user.data.editable==true">
-              <div class="icon icon-shape bg-success text-white rounded-circle shadow"  (click)="editInfo()">
+              <div class="icon icon-shape bg-success text-white rounded-circle shadow"  (click)="editInfo(user.data)">
                 <i class="fas fa-edit"></i>
               </div>
             </div>

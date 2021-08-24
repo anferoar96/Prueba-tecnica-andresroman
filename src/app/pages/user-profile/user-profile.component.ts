@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from 'src/app/shared/services';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,6 +12,7 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
     private firestoreService: FirestoreService,
+    private modalService: NgbModal
   ) { }
 
   public usersr=[]
@@ -30,8 +33,9 @@ export class UserProfileComponent implements OnInit {
     }) 
   }
 
-  public editInfo(){
-    
+  public editInfo(user){
+   const modalRef= this.modalService.open(ModalComponent)
+   modalRef.componentInstance.user = user;
   }
 
 }
