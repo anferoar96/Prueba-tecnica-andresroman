@@ -9,10 +9,23 @@ import { Observable } from 'rxjs';
 export class FirestoreService {
 
   constructor(
-    private firestore: AngularFirestore
+    private db: AngularFirestore
   ) { }
 
   public getAllUsers(){
-    return this.firestore.collection('users').snapshotChanges();
+    return this.db.collection('users').snapshotChanges();
+  }
+  public editUser(user){
+    //user.id
+    return this.db.collection('users').doc(user.id).update({
+      name: user.name,
+      lastname: user.lastname,
+      email: user.email
+    }).then(()=>{
+      console.log("Success")
+    }).catch((error) => {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+  });
   }
 }

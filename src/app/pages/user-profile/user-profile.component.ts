@@ -28,8 +28,6 @@ export class UserProfileComponent implements OnInit {
           data: user.payload.doc.data()
         })
        })
-       console.log(this.usersr)
-
     }) 
   }
 
