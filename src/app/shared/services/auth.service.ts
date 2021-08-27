@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  public authUser:any;
+
   constructor(
     private dbAuth:AngularFireAuth,
     private router:Router
@@ -15,6 +17,7 @@ export class AuthService {
   login(email:string,password:string){
     this.dbAuth.signInWithEmailAndPassword(email,password)
       .then((user)=>{
+        this.authUser=user;
         this.router.navigate(['/dashboard']);
       })
       .catch((error)=>{

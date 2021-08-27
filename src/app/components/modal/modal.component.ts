@@ -26,7 +26,7 @@ export class ModalComponent implements OnInit {
           id:[this.user.id,[Validators.required]],
           name:[this.user.name,[Validators.required]],
           lastname:[this.user.lastname,[Validators.required]],
-          email:[this.user.email,[Validators.required]]
+          email:[this.user.email,[Validators.required]],
       })
   }
 
